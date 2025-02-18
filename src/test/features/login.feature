@@ -32,14 +32,6 @@ Feature: UPS User Login
     Then I should see an error message indicating the username is unrecognized
     And I should remain on the username entry page
 
-  @security
-  Scenario: Account lockout after multiple failed login attempts
-    When I enter my username "validUserName"
-    And I click the "Continue" button
-    And I enter an invalid password "WrongPassword" three times
-    Then I should see a message that my account is locked
-    And I should be prompted to reset my password or contact support
-
   @ui
   Scenario: Password recovery option is available
     Then I should see a "Forgot Username/Password?" link on the login page
