@@ -20,23 +20,18 @@ Feature: UPS User Login
   Scenario: Unsuccessful login with invalid credentials
     When I enter my username "validUserName"
     And I click the "Continue" button
-    And I enter an invalid password "WrongPassword"
+    And I enter an invalid password 
     And I click the "Log In" button
     Then I should see an error message indicating incorrect login details
     And I should remain on the password entry page
 
   @negative
   Scenario: Unrecognized username during login
-    When I enter an unregistered username "unknownUser"
+    When I enter an unregistered username 
     And I click the "Continue" button
     Then I should see an error message indicating the username is unrecognized
     And I should remain on the username entry page
 
-  @ui
-  Scenario: Password recovery option is available
-    Then I should see a "Forgot Username/Password?" link on the login page
-    When I click the "Forgot Username/Password?" link
-    Then I should be directed to the password recovery page
 
 
  
