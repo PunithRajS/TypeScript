@@ -33,11 +33,11 @@ export class LoginPage {
   // }
 
   async waitForErrorMessage() {
-    await this.page.waitForSelector('text=The information you entered does not match our records');
+    await this.page.waitForSelector('#generic_error > p');
   }
 
   async waitForUnrecognizedUsernameMessage() {
-    await this.page.waitForSelector('text=The username you entered is not recognized');
+    await this.page.waitForSelector('#generic_error > p');
   }
 
   async getCurrentUrl() {
