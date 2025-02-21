@@ -3,9 +3,9 @@
         "formatOptions":{
             "snippetInterface": "async-await"
         },
-        "paths":["src/test/features/login.feature"],
-        "dryRun": true
-,        "require":[
+        "paths":["src/test/features/"],
+        "dryRun": false,
+                "require":[
             "src/test/steps/*.ts",
             "/src/test/hooks/hooks.ts"
         ],

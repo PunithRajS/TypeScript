@@ -23,7 +23,9 @@ export class LoginPage {
   }
 
   async waitForDashboard() {
+    const redirectedUrl = this.getCurrentUrl();
     await this.page.waitForSelector('#user-profile');
+    console.log(redirectedUrl);
   }
 
   // async waitForGreetingMessage() {
