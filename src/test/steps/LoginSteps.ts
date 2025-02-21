@@ -1,53 +1,52 @@
-import { Given, When, Then, Before, After } from '@cucumber/cucumber';
-import { chromium, Page, Browser } from 'playwright';
-import { UPSHomePage } from './UPSHomePage';
-import { LoginPage } from './LoginPage';
+import { Given, When, Then, Before, context } from '@cucumber/cucumber';
+// import { BrowserContext } from 'playwright';
+import { fixture } from "../../hooks/fixture";
+import { HomePage } from '../../pages/HomePage';
+import { LoginPage } from '../../pages/LoginPage';
 
-let page: Page;
-let browser: Browser;
-let homePage: UPSHomePage;
-let loginPage: LoginPage;
+let homePage: HomePage ;
+let loginPage: LoginPage ;
+// let context: BrowserContext;
 
 Before(async function () {
-  browser = await chromium.launch({ headless: false });
-  page = await browser.newPage();
-  homePage = new UPSHomePage(page);
-  loginPage = new LoginPage(page);
+  homePage = new HomePage(fixture.page);
+  loginPage = new LoginPage(fixture.page);
 });
 
-After(async function () {
-  await browser.close();
-});
-
-Given('I am on the UPS homepage', async function () {
+Given('I am on the homepage', async function () {
   await homePage.navigate();
+  console.log('Browser opened and navigated to UPS website.');
 });
 
 Given('I navigate to the login page', async function () {
   await homePage.goToLoginPage();
 });
 
-When('I enter my username {string}', async function (username: string) {
-  await loginPage.enterUsername(username);
+When('I enter my Valid UserName', async function () {
+  await loginPage.enterUsername("deploymentmasterups@edny.net");
 });
 
 When('I click the {string} button', async function (button: string) {
-  await loginPage.clickButton(button);
+  if (button === 'Continue') {
+    await loginPage.clickContinue();
+  } else if (button === 'LogIn') {
+    await loginPage.clickLogin();
+  }
 });
 
-When('I enter my password {string}', async function (password: string) {
-  await loginPage.enterPassword(password);
+When('I enter my Valid Password', async function () {
+  await loginPage.enterPassword("Password@001");
 });
 
 Then('I should be redirected to my account dashboard', async function () {
   await loginPage.waitForDashboard();
 });
 
-Then('I should see a greeting message with my name', async function () {
-  await loginPage.waitForGreetingMessage();
-});
+// Then('I should see a greeting message with my name', async function () {
+//   await loginPage.waitForGreetingMessage();
+// });
 
-When('I enter an invalid password', async function () {
+When('I enter an Invalid password', async function () {
   await loginPage.enterPassword("invalidpassword");
 });
 

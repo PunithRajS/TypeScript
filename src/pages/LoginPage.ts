@@ -8,24 +8,27 @@ export class LoginPage {
   }
 
   async enterUsername(username: string) {
-    await this.page.fill('input[name="userID"]', username);
+    await this.page.fill('#emailInput', username);
   }
 
-  async clickButton(button: string) {
-    await this.page.click(`text=${button}`);
+  async clickContinue() {
+    await this.page.click(`#submitBtn`);
+  }
+  async clickLogin() {
+    await this.page.click(`#submitBtn`);
   }
 
   async enterPassword(password: string) {
-    await this.page.fill('input[name="password"]', password);
+    await this.page.fill('#pwd', password);
   }
 
   async waitForDashboard() {
-    await this.page.waitForSelector('text=Welcome');
+    await this.page.waitForSelector('#user-profile');
   }
 
-  async waitForGreetingMessage() {
-    await this.page.waitForSelector('selector-for-greeting-message');
-  }
+  // async waitForGreetingMessage() {
+  //   await this.page.waitForSelector('#user-profile');
+  // }
 
   async waitForErrorMessage() {
     await this.page.waitForSelector('text=The information you entered does not match our records');
