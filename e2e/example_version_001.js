@@ -3,7 +3,7 @@ const { chromium } = require('playwright');
 (async () => {
   const browser = await chromium.launch({ headless: false });
   const page = await browser.newPage();
-  await page.goto('https://www.ups.com');
+  await page.goto('https://www.erp.com');
 
   console.log(await page.title());
 

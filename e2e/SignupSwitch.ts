@@ -11,7 +11,7 @@ async function singupSwitch() {
   const context = await browser.newContext();
 
   const upsPage: Page = await context.newPage();
-  await upsPage.goto('https://wwwapps.ups.com/doapp/signup'); 
+  await upsPage.goto('https://wwwapps.erp.com/doapp/signup'); 
 
   const mailPage: Page = await context.newPage();
   await mailPage.goto('https://mail.tm/en/'); 

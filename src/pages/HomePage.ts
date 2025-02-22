@@ -21,7 +21,7 @@ export class HomePage {
   // }});
 
   try {
-    await this.page.goto('https://www.ups.com');
+    await this.page.goto('https://www.erp.com');
   } catch (error) {
     console.error('Error navigating to the homepage:', error);
   }

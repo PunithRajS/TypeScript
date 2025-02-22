@@ -23,7 +23,7 @@ test.afterAll(async () => {
 });
 
 test('@setup Open Browser, Handle Cookies, and Log In', async () => {
-  await page.goto('https://www.ups.com', { waitUntil: 'load' });
+  await page.goto('https://www.erp.com', { waitUntil: 'load' });
   console.log('✅ Browser opened and navigated to UPS website.');
   await page.waitForTimeout(5000);
 });

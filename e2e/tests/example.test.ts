@@ -2,9 +2,9 @@ const { test, expect } = require('@playwright/test');
 
 // Test Case 1: Open Browser, Handle Cookies, and Log In
 test('Open Browser, Handle Cookies, and Log In', async ({ page }) => {
-  // Navigate to the UPS website
-  await page.goto('https://www.ups.com');
-  console.log('Browser opened and navigated to UPS website.');
+  // Navigate to the website
+  await page.goto('https://www.erp.com');
+  console.log('Browser opened and navigated to website.');
 
   // Handle the cookie consent pop-up
   
@@ -46,8 +46,8 @@ test('Open Browser, Handle Cookies, and Log In', async ({ page }) => {
 // Test Case 2: Sign Up Process
 test('Sign Up Process', async ({ page }) => {
   // Navigate to the UPS website
-  await page.goto('https://www.ups.com');
-  console.log('Browser opened and navigated to UPS website.');
+  await page.goto('https://www.erp.com');
+  console.log('Browser opened and navigated to website.');
 
   // Handle the cookie consent pop-up (if needed)
   try {
