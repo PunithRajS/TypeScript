@@ -1,6 +1,6 @@
 Feature: User Sign-Up
   As a new user
-  I want to sign up for a UPS account
+  I want to sign up for a account
   So that I can access  services and manage my shipments
 
   Background:

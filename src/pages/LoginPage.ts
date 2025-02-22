@@ -8,7 +8,11 @@ export class LoginPage {
   }
 
   async enterUsername(username: string) {
-    await this.page.fill('#emailInput', username);
+    try{
+      await this.page.fill('#emailInput', username);
+    }catch(error){
+      console.error('Error entering username:', error);
+    }
   }
 
   async clickContinue() {

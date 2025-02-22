@@ -23,7 +23,7 @@ Given('I navigate to the login page', async function () {
 });
 
 When('I enter my Valid UserName', async function () {
-  await loginPage.enterUsername("deploymentmasterups@edny.net");
+  await loginPage.enterUsername("JSnow110");
 });
 
 When('I click the {string} button', async function (button: string) {
@@ -35,7 +35,7 @@ When('I click the {string} button', async function (button: string) {
 });
 
 When('I enter my Valid Password', async function () {
-  await loginPage.enterPassword("Password@001");
+  await loginPage.enterPassword("JSkeypass881");
 });
 
 Then('I should be redirected to my account dashboard', async function () {

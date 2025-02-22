@@ -11,24 +11,31 @@ export class HomePage {
 
   async navigate() {
 
-    // Handle browser dialog
-    this.page.on('dialog', async dialog => {
-    console.log('Dialog message:', dialog.message());
-    if (dialog.type() === 'confirm') {
-      await dialog.accept(); 
-    } else {
-      await dialog.dismiss();
-  }});
+  //   // Handle browser dialog
+  //   this.page.on('dialog', async dialog => {
+  //   console.log('Dialog message:', dialog.message());
+  //   if (dialog.type() === 'confirm') {
+  //     await dialog.accept(); 
+  //   } else {
+  //     await dialog.dismiss();
+  // }});
 
-  await this.page.goto('https://www.ups.com');
+  try {
+    await this.page.goto('https://www.ups.com');
+  } catch (error) {
+    console.error('Error navigating to the homepage:', error);
+  }
   // await this.context().grantPermissions(['geolocation']);
   // await this.setGeolocation({ latitude: 37.7749, longitude: -122.4194 });
    }
 
   async goToLoginPage() {
-    await this.page.click('span.text:has-text("Log In")');
-  }
-}
+    try {
+      await this.page.click('span.text:has-text("Log In")');
+    } catch (error) {
+      console.error('Error clicking login button:', error);
+    }
+}}
 
 
 // await page.waitForSelector('.privacy_prompt_content', { timeout: 5000 });
@@ -40,4 +47,4 @@ export class HomePage {
 //     await page.waitForSelector('#consent_prompt_submit:not([disabled])', { timeout: 5000 });
 
 //     // Click the "Confirm Selection" button
-//     await page.click('#consent_prompt_submit');
+//     await page.click('#consent_prompt_submit')

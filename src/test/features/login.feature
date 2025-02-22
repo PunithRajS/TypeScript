@@ -1,5 +1,5 @@
-Feature: UPS User Login
-  As a registered UPS user
+Feature: User Login
+  As a registered user
   I want to log into my account
   So that I can manage my shipments and view my account details
 
